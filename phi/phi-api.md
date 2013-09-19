@@ -12,21 +12,15 @@ the path or as an HTTP query parameter.
 
     GET /text/:phi_id.json  => returns JSON
 
-
     GET /text/:phi_id.xml  => returns XML
-
 
     GET /text/:phi_id  => returns plain text
 
-
 For example, 
-
 
     curl -i -XGET http://epigraphy.packhum.org/api/text/1.json
 
-
 returns:
-
 
     HTTP/1.1 200 OK
     Server: nginx/1.4.2
@@ -39,7 +33,6 @@ returns:
     Expires: Tue, 17 Sep 2013 20:09:00 GMT
     Cache-Control: max-age=86400, pre-check=86400
     X-Lift-Version: 2.5
-
 
 		{
 			"phi":"1",
@@ -55,23 +48,17 @@ returns:
 
 		GET /refs.json?loc=:locid  => returns JSON
 
-
 		GET /refs.xml?loc=:locid  => returns XML
-
 
 The response is a map of PHI ids to conventional reference. Location 1
 (:loc_id = 1) is the root location and will return a map of all PHI
 ids.
 
-
 For example,
-
 
 	curl -i -XGET http://epigraphy.packhum.org/api/refs.json?loc=100
 
-
 returns
-
 
 		HTTP/1.1 200 OK
 		Server: nginx/1.4.2
@@ -85,26 +72,20 @@ returns
 		Cache-Control: max-age=86400, pre-check=86400
 		X-Lift-Version: 2.5
 
-
 		[["143365","IG XIV 2545"],["143367","IG XIV 2547"],["143368","IG XIV 2548"],["143369","IG XIV 2549"],["143370","IG XIV 2550"],["143371","IG XIV 2551"],["143372","IG XIV 2552"],["143373","IG XIV 2553"],["143374","IG XIV 2554"],["143375","IG XIV 2555"],["143402","IG XIV 2573,2"],["143405","IG XIV 2573,5"],["143407","IG XIV 2573,7"],["143408","IG XIV 2573,8"],["143411","IG XIV 2573,11"],["143437","IG XIV 2576,4"],["143450","IG XIV 2577,6"],["143456","IG XIV 2577,12"],["330034","SEG 19:643"],["330035","SEG 19:644"],["330036","SEG 19:646"],["333742","SEG 30:1241"],["331327","SEG 34:1040"],["331790","SEG 37:840"],["332049","SEG 39:1089"],["332050","SEG 39:1090"],["332683","SEG 42:980"],["332684","SEG 42:981"],["340237","SEG 47:1543"],["336458","SEG 48:1310"],["336663","SEG 50:1086"],["337348","SEG 52:1018"],["337489","SEG 54:1011"]]
-
 
 3. Retrieving PHI ids by source
 -------------------------------
 
 		GET /refs.json?source=:source_id  => returns JSON
 
-
 		GET /refs.xml?source=:source_id  => returns XML
 
 For example,
 
-
 		curl -i -XGET http://epigraphy.packhum.org/api/refs.xml?source=295
 
-
 returns
-
 
 		HTTP/1.1 200 OK
 		Server: nginx/1.4.2
@@ -127,22 +108,16 @@ returns
 
 		GET /loc/:loc_id.json  => returns JSON
 
-
 		GET /loc/:loc_id.xml   => returns XML
-
 
 The locations are arranged hierarchically. The response represents a
 graph of a location and its children. Location 1 is the root location.
 
-
 For example,
-
 
 		curl -i -XGET http://epigraphy.packhum.org/api/loc/10.json 
 
-
 returns
-
 
 		HTTP/1.1 200 OK
 		Server: nginx/1.4.2
@@ -169,11 +144,9 @@ returns
 
 		GET /source.xml?q=:search_pattern   => returns XML
 
-
 The first two calls return a complete list of sources. The second two
 interpret :search_pattern as a regular expression and use it to filter
 sources by title.
-
 
 For example, 
 
@@ -192,6 +165,5 @@ returns
 		Expires: Tue, 17 Sep 2013 21:13:22 GMT
 		Cache-Control: max-age=86400, pre-check=86400
 		X-Lift-Version: 2.5
-
 
 		[["484","McCabe, Aphrodisias"],["532","Roueché, Performers and Partisans at Aphrodisias"]]
